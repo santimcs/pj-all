@@ -1,0 +1,9 @@
+<% provide(:page_title, 'New Channel') %> 
+<% provide(:channel_active, 'active') %>
+
+
+<h1>New Channel</h1>
+
+<%= render 'form', channel: @channel %>
+
+<%= link_to 'Back', channels_path %>

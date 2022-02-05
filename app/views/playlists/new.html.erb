@@ -1,0 +1,7 @@
+<% provide(:page_title, 'New Playlist') %> <% provide(:playlists_active, 'active') %>
+
+<h1>New Playlist</h1>
+
+<%= render 'form', playlist: @playlist %>
+
+<%= link_to 'Back', playlists_path %>

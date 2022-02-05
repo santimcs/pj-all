@@ -1,0 +1,89 @@
+<p id="notice"><%= notice %></p>
+<% provide(:page_title, 'Show Playlist') %>
+<% provide(:playlist_active, 'active') %>
+
+<div class="page-header text-center" >
+<% if @playlist.total_episode > 1 %>
+<%= link_to 'View', "https://www.youtube.com/playlist?list="+@playlist.url, target: "_new",
+  :class => "btn btn-success pull-right"  %>
+  <% else %>
+<%= link_to 'View', "https://youtu.be/"+@playlist.url, target: "_new",
+  :class => "btn btn-success pull-right"  %>  
+  <% end %>
+</div>
+
+<p>
+  <strong>Topic:</strong>
+  <%= @playlist.topic_id %>
+</p>
+
+<p>
+  <strong>Channel:</strong>
+  <%= @playlist.channel_id %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @playlist.title %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= link_to(@playlist.url, "https://www.youtube.com/playlist?list="+@playlist.url, target: "_new") %>
+</p>
+
+<p>
+
+    <%= link_to @playlist do %> 
+      <%= image_tag src="https://i.ytimg.com/vi/"+@playlist.image_url+"/mqdefault.jpg", width: 100 %> 
+    <% end %>
+      
+</p>
+
+<p>
+  <strong>Total episode:</strong>
+  <%= @playlist.total_episode %>
+</p>
+
+<p>
+  <strong>Finish episode:</strong>
+  <%= @playlist.finish_episode %>
+</p>
+
+<p>
+  <strong>Completed:</strong>
+  <%= @playlist.completed %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @playlist.duration %>
+</p>
+
+<p>
+  <strong>Image url:</strong>
+  <%= @playlist.image_url %>
+</p>
+
+<p>
+  <strong>Views:</strong>
+  <%= @playlist.views %>
+</p>
+
+<p>
+  <strong>Last updated:</strong>
+  <%= @playlist.last_updated %>
+</p>
+
+<p>
+  <strong>Sequence:</strong>
+  <%= @playlist.sequence %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @playlist.rating %>
+</p>
+
+<%= link_to 'Edit', edit_playlist_path(@playlist) %> |
+<%= link_to 'Back', playlists_path %>

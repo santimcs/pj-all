@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+<% provide(:page_title, 'Show Channel') %>
+<% provide(:channel_active, 'active') %>
+<p>
+  <strong>Name:</strong>
+  <%= @channel.name %>
+</p>
+
+<p>
+  <strong>Subscriber:</strong>
+  <%= @channel.subscriber %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @channel.url %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @channel.image %>
+</p>
+
+<%= link_to 'Edit', edit_channel_path(@channel) %> |
+<%= link_to 'Back', channels_path %>

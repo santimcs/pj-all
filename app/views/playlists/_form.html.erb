@@ -1,0 +1,82 @@
+<%= form_with(model: playlist, local: true) do |form| %>
+  <% if playlist.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(playlist.errors.count, "error") %> prohibited this playlist from being saved:</h2>
+
+      <ul>
+        <% playlist.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+      <%= form.label :topic_id %>
+      <%= form.collection_select :topic_id, Topic.all, :id, :title + :subtitle %>
+  </div> 
+
+  <div class="field">
+    <%= form.label :channel_id %>
+      <%= form.collection_select :channel_id, Channel.order("name ASC"), :id, :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :url %>
+    <%= form.text_field :url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :total_episode %>
+    <%= form.number_field :total_episode %>
+  </div>
+
+  <div class="field">
+    <%= form.label :finish_episode %>
+    <%= form.number_field :finish_episode %>
+  </div>
+
+  <div class="field">
+    <%= form.label :completed %>
+    <%= form.check_box :completed %>
+  </div>
+
+  <div class="field">
+    <%= form.label :duration %>
+    <%= form.number_field :duration %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image_url %>
+    <%= form.text_field :image_url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :views %>
+    <%= form.number_field :views %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_updated %>
+    <%= form.date_select :last_updated %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sequence %>
+    <%= form.number_field :sequence %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rating %>
+    <%= form.number_field :rating %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

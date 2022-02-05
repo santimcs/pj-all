@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+<% provide(:page_title, 'Show Topic') %>
+<% provide(:topic_active, 'active') %>
+<p>
+  <strong>Title:</strong>
+  <%= @topic.title %>
+</p>
+
+<p>
+  <strong>Subtitle:</strong>
+  <%= @topic.subtitle %>
+</p>
+
+<%= link_to 'Edit', edit_topic_path(@topic) %> |
+<%= link_to 'Back', topics_path %>

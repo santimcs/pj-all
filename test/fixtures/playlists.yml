@@ -1,0 +1,31 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  topic: one
+  channel: one
+  title: MyString
+  url: MyString
+  total_episode: 1
+  finish_episode: 1
+  completed: false
+  duration: 1
+  image_url: MyString
+  views: 1
+  last_updated: 2020-07-31
+  sequence: 1
+  rating: 1
+
+two:
+  topic: two
+  channel: two
+  title: MyString
+  url: MyString
+  total_episode: 1
+  finish_episode: 1
+  completed: false
+  duration: 1
+  image_url: MyString
+  views: 1
+  last_updated: 2020-07-31
+  sequence: 1
+  rating: 1

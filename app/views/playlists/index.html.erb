@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+<% provide(:page_title, 'Playlists') %> 
+<% provide(:playlist_active, 'active') %>
+
+<h1>Playlists</h1>
+<%= link_to 'New Playlist', new_playlist_path %>
+
+<table id="playlists" class="table table-striped">
+  <thead>
+    <tr>
+      <th>Topic</th>
+      <th>Channel</th>
+      <th>Title</th>
+      <th>Total episode</th>
+      <th>Finish episode</th>
+      <th>Completed</th>
+      <th>Duration</th>
+      <th>Views</th>
+      <th>Last updated</th>
+      <th>Sequence</th>
+      <th>Rating</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @playlists.each do |playlist| %>
+      <tr>
+        <td><%= playlist.topic.title %></td>
+        <td><%= playlist.channel.name %></td>
+        <td><%= playlist.title %></td>
+        <td><%= playlist.total_episode %></td>
+        <td><%= playlist.finish_episode %></td>
+        <td><%= playlist.completed %></td>
+        <td><%= seconds_to_hour(playlist.duration) %></td>
+        <td><%= number_to_human(playlist.views, :format => '%n%u', :precision => 2, :units => { :thousand => 'K', :million => 'M', :billion => 'B' }) %></td>
+        <td><%= playlist.last_updated %></td>
+        <td><%= playlist.sequence %></td>
+        <td><%= playlist.rating %></td>
+        <td><%= link_to 'S', playlist %></td>
+        <td><%= link_to 'E', edit_playlist_path(playlist) %></td>
+        <td><%= link_to 'D', playlist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Playlist', new_playlist_path %>

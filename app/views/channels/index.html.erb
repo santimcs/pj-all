@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+<% provide(:page_title, 'Channels') %>
+<% provide(:channel_active, 'active') %>
+
+<div class ="page-header text-center" > 
+  <h1>Channels</h1>  
+</div>
+
+<table id="channels" class="table table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Subscriber</th>
+      <th>Url</th>
+      <th colspan="3"></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @channels.each do |channel| %>
+      <tr>
+        <td><%= image_tag channel.image, width: 50 %></td>
+        <td><%= channel.name %></td>
+        <td><%= number_to_human(channel.subscriber, :format => '%n%u', :precision => 2, :units => { :thousand => 'K', :million => 'M', :billion => 'B' }) %></td>        
+        <td><%= channel.url %></td>
+        <td><%= link_to 'Show', channel %></td>
+        <td><%= link_to 'Edit', edit_channel_path(channel) %></td>
+        <td><%= link_to 'Destroy', channel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Channel', "https://www.youtube.com/channel/"+channel.url, target: "_new",
+  :class => "btn btn-success pull-right"  %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Channel', new_channel_path %>
+
